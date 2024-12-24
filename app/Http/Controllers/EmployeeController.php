@@ -8,8 +8,9 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Log;
-use Intervention\Image\ImageManager;
 use App\Http\Requests\EmployeeRequest;
+
+use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class EmployeeController extends Controller

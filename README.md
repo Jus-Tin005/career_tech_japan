@@ -43,4 +43,45 @@ Follow the steps below to set up the project:
      php artisan serve
      ```
 
+8. **Credentials**  
+   - The default login credentials are:
+     ```plaintext
+     email = admin@admin.com
+     password = password
+     ```
+
+9. **API Endpoints**  
+   Below are the available API endpoints:
+
+    **Company** 
+   - **GET** `api/companies` — Retrieve list of companies  
+   - **POST** `api/companies` — Create a new company  
+   - **GET** `api/companies/{company}` — Retrieve a specific company  
+   - **POST** `api/companies-update/{company}` — Update a specific company  
+   - **DELETE** `api/companies/{company}` — Delete a specific company  
+     
+
+    **Employee** 
+   - **GET** `api/employees` — Retrieve list of employees  
+   - **POST** `api/employees` — Create a new employee  
+   - **GET** `api/employees/{employee}` — Retrieve a specific employee  
+   - **POST** `api/employees-update/{employee}` — Update a specific employee  
+   - **DELETE** `api/employees/{employee}` — Delete a specific employee   
+     
+
+    **Authentication** 
+   - **POST** `api/login` — Login a user  
+   - **POST** `api/register` — Register a new user  
+    
+
+    **User** 
+   - **GET** `api/users` — Retrieve list of users  
+    
+
+10. **If Image Did Not Display**  
+   - If there are any missing image display, resolve them by running:
+     ```bash
+     php artisan storage:link
+     ```
+
 You’re now ready to use the application!

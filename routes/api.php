@@ -2,18 +2,31 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Api\AuthApiController;
+use App\Http\Controllers\Api\CompanyApiController;
+use App\Http\Controllers\Api\EmployeeApiController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+# Clear Cache
+Artisan::call('cache:clear');
+Artisan::call('route:clear');
+Artisan::call('view:clear');
+Artisan::call('config:clear');
+
+Route::post('login', [AuthApiController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function(){
+
+    # Company
+    Route::apiResource('/companies', CompanyApiController::class);
+    Route::post('/companies-update/{id}', [CompanyApiController::class,'updateCompany']);
+
+    # Employees
+    Route::apiResource('/employees', EmployeeApiController::class);
+    Route::post('/employees-update/{id}', [EmployeeApiController::class,'updateEmployee']);
+
+    # User
+    Route::get('users', [AuthApiController::class,'getUsers']);
+    Route::post('register', [AuthApiController::class, 'register']);
 });
