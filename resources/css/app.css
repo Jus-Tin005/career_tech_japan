@@ -1,0 +1,13 @@
+/* Bootstrap & Bootstrap Icon */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
+
+
+/* Global Font */
+*{
+    font-family: "Roboto", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
